@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mano Baras</title>
+    <style>
+        .progress {
+            position: relative;
+            width: 210px;
+            height: 30px;
+            background: hsl(239, 22%, 59%);
+            border-radius: 5px;
+            overflow: hidden; 
+        }
+        
+        .progress__fill {
+            width: 0%;
+            height: 100%;
+            background: #17e00c; 
+            border-radius: 5px;            
+        }
+
+        .progress__text {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
+            font: bold 20px 'Quicksand', sans-serif;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class = "progress">
+        <div class = "progress__fill"></div>
+        <div class = "progress__text"></div>
+
+    </div>
+
+    <script>
+        const pBar = document.querySelector (".progress");
+        perBar = 20;
+   
+    updateProgressBar (pBar,perBar);
+ 
+        
+        function updateProgressBar (namas,value){
+            value = Math.round(value); //suapvalinam procentus
+            namas.querySelector(".progress__fill").style.width = `${value}%`;
+            namas.querySelector(".progress__text").textContent = `${value}%`;
+
+        }
+
+    </script>
+    
+</body>
+</html>
