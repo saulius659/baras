@@ -32,24 +32,52 @@
     </style>
 </head>
 <body>
+    
     <div class = "progress">
         <div class = "progress__fill"></div>
         <div class = "progress__text"></div>
 
     </div>
+    
+    <p>0-100%</p> <!--tusčia eilutė gaunasi-->
+    <input id="ivedimas" type="number" placeholder="Įvesk procentą">
+    <button onclick="duomenys()">Spausk</button>
 
     <script>
-        const pBar = document.querySelector (".progress");
-        perBar = 20;
+        //const pBar = document.querySelector (".progress");
+        //perBar = 77; //baro ilgis %
+        //value = 40;
    
-    updateProgressBar (pBar,perBar);
- 
-        
+    //updateProgressBar (pBar,perBar);
+    //updateProgressBarMano (perBar) //sumazinau iki 1 kintamojo
+
+        //cia mano funkcija, pakeiciau namas i document
+        function updateProgressBarMano (value){
+            value = Math.round(value); //suapvalinam procentus
+            
+            if (value < 0) {
+                value = 0;
+            }
+
+            if (value > 100) {
+                value = 100;
+            }
+            
+            document.querySelector(".progress__fill").style.width = `${value}%`;
+            document.querySelector(".progress__text").textContent = `${value}%`;
+
+        }    
+
         function updateProgressBar (namas,value){
             value = Math.round(value); //suapvalinam procentus
             namas.querySelector(".progress__fill").style.width = `${value}%`;
             namas.querySelector(".progress__text").textContent = `${value}%`;
 
+        }
+
+        function duomenys(){
+            let perBar = document.getElementById("ivedimas").value;
+            updateProgressBarMano (perBar);
         }
 
     </script>
